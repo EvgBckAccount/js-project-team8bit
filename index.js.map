@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"index.js","sources":["../src/main.js"],"sourcesContent":["// Define a FontFace\nconst font = new FontFace(\"my-font\", 'url(\"my-font.woff\")', {\n  weight: \"400 500 600 700\",\n  stretch: \"condensed\",\n});\n\n// Add to the document.fonts (FontFaceSet)\ndocument.fonts.add(font);"],"names":["font"],"mappings":"ssBACA,MAAMA,EAAO,IAAI,SAAS,UAAW,sBAAuB,CAC1D,OAAQ,kBACR,QAAS,WACX,CAAC,EAGD,SAAS,MAAM,IAAIA,CAAI"}
