@@ -1,9 +1,10 @@
 import boxicons from 'boxicons';
 import 'boxicons/css/boxicons.min.css';
 
+
 import { refs } from './refs';
 
-const youtubeIcon = new BoxIconElement();
+
 
 export function renderArtistBioDetails(response) {
   const {
@@ -18,9 +19,12 @@ export function renderArtistBioDetails(response) {
     genres,
     albumsList,
   } = response;
-  const indexNullText = `${resp.intFormedYear}-${
-    resp.intDiedYear ? resp.intDiedYear : 'present'
+  console.log(response);
+  
+  const indexNullText = `${response.intFormedYear}-${
+    response.intDiedYear ? response.intDiedYear : 'present'
   }`;
+console.log(albumsList);
 
   const textArray = [
     indexNullText,

@@ -32,8 +32,8 @@ div.is-open {
 }
 
 div#artist-details-modal {
-  position: absolute;
-  overflow-y: auto;
+  position: fixed;
+  overflow-y: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -46,7 +46,7 @@ div#artist-details-modal {
   border-radius: 16px;
   padding: 52px 8px;
   width: 288px;
-  max-height: calc(100vh - 128px);
+  max-height: calc((100vh - 128px));
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -234,3 +234,63 @@ tr > th:nth-of-type(2) {
 tr > th:last-of-type {
   text-align: center;
 }
+
+/*  */
+
+h1#modal-title {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-align: left;
+  padding-left: 64px;
+  padding-top: 48px;
+}
+
+.albums#albums-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin: 0 auto;
+  max-width: 320px;
+  padding: 16px 8px 32px 8px;
+  max-width: 320px;
+}
+
+.album#album {
+  background: #1e1c1f;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.album li:last-child {
+  border-bottom: none;
+}
+
+.albums {
+  grid-template-columns: 1fr;
+  padding: 16px 8px 32px 8px;
+  max-width: 320px;
+}
+
+@media (min-width: 768px) {
+  .albums {
+    grid-template-columns: repeat(2, 1fr);
+    gap: px;
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .albums {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1440px;
+  }
+  .album {
+    padding: 20px;
+  }
+}
+/*  */
