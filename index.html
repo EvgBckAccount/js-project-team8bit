@@ -6,26 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ArtistsHub</title>
     <script type="module" crossorigin src="/js-project-team8bit/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/index-loKmciA5.css">
+    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/index-CPO0ujf8.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="/js-project-team8bit/assets/sprite-E8vg0sBb.svg#logo"></use>
-        </svg>
-      </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
+  <div class="header-container">
+    <!--burger menu-->
+    <button class="menu-toggle" id="open-menu">&#9776;</button>
+
+    <!-- Десктопна навігація -->
+    <nav class="nav-desktop" id="nav">
+      <ul class="nav-list-desktop">
+        <li><a href="#artist-section">Artists</a></li>
+        <li><a href="#about-section">About Us</a></li>
+        <li><a href="#reviews-section">Reviews</a></li>
       </ul>
     </nav>
+
+    <!-- SVG логотип -->
+    <a href="#" class="logo">
+      <img src="/js-project-team8bit/assets/logo-RAKB-wyC.svg" alt="ArtistsHub"/>
+    </a>
+  </div>
+
+  <!-- Мобільне меню -->
+  <div class="mobile-menu hidden" id="mobile-menu">
+
+  <!-- Верхній рядок -->
+  <div class="mobile-header-top">
+    
+    <!-- SVG логотип -->
+    <a href="#" class="logo-mobile">
+      <img src="/js-project-team8bit/assets/logo-RAKB-wyC.svg" alt="ArtistsHub"/>
+    </a>
+    <!--btn close-->
+    <button class="menu-close" id="close-menu"></button>
+  </div>
+
+  <!-- Навігація мобілка-->
+  <nav class="nav-desktop">
+    <ul class="nav-list-mobile">
+      <li><a href="#artist-section">Artists</a></li>
+      <li><a href="#about-section">About Us</a></li>
+      <li><a href="#reviews-section">Reviews</a></li>
+    </ul>
+  </nav>
   </div>
 </header>
 
@@ -40,19 +65,7 @@
     </main>
 
     <footer class="footer">
-  <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
-  </div>
+
 </footer>
 
 
