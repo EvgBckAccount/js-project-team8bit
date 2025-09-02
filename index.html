@@ -8,11 +8,10 @@
     <script type="module" crossorigin src="/js-project-team8bit/index.js"></script>
     <link rel="modulepreload" crossorigin href="/js-project-team8bit/assets/vendor-BLr1Yvwf.js">
     <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/vendor-DQ67Uydh.css">
-    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/index-C_jL0Wze.css">
+    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/index-DRx2btuQ.css">
   </head>
   <body>
-    
-<header class="header">
+    <header class="header">
   <div class="header-container container">
     <!--burger menu-->
     <button class="menu-toggle" id="open-menu">&#9776;</button>
@@ -20,7 +19,7 @@
     <!-- Десктопна навігація -->
     <nav class="nav-desktop" id="nav">
       <ul class="nav-list-desktop">
-        <li><a href="#artist-section">Artists</a></li>
+        <li><a href="#artists-section">Artists</a></li>
         <li><a href="#about-section">About Us</a></li>
         <li><a href="#reviews-section">Reviews</a></li>
       </ul>
@@ -60,6 +59,7 @@
 
 
 
+
     <main>
       <!-- Loads the specified .html file -->
       <section class="hero-section">
@@ -72,7 +72,7 @@
         about your favorite artists all in one place.
       </p>
 
-      <a href="#artist-section" class="main-button">
+      <a href="#artists-section" class="main-button">
         <span class="main-btn-text">Explore Artists</span>
         <span class="main-btn-icon">
           <svg class="main-btn-svg" width="15" height="21">
@@ -106,6 +106,7 @@
     </div>
   </div>
 </section>
+
 
       <section class="about" aria-label="About ArtistsHub">
     <div class="card">
@@ -149,20 +150,25 @@
       <div
   id="artistModal"
   class="modal"
-  aria-hidden="true"
   role="dialog"
   aria-labelledby="modalTitle"
   aria-modal="true"
 >
   <div class="modal__content" tabindex="-1">
-    <button id="modalClose" class="modal__close" aria-label="Close modal">
-      <i class="bx bx-x"></i>
+    <button
+      type="button"
+      id="modalClose"
+      class="modal__close"
+      aria-label="Close modal"
+    >
+      <i class="bx bx-x" style="color: #fff"></i>
     </button>
     <div id="modal-content"></div>
   </div>
 </div>
 
 <div id="globalLoader" class="loader"></div>
+
     </main>
 
     <footer class="footer">
