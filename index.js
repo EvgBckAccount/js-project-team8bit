@@ -1,34 +1,44 @@
-import{a as c,i as N,s as W}from"./assets/vendor-BLr1Yvwf.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))a(s);new MutationObserver(s=>{for(const o of s)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function n(s){const o={};return s.integrity&&(o.integrity=s.integrity),s.referrerPolicy&&(o.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?o.credentials="include":s.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function a(s){if(s.ep)return;s.ep=!0;const o=n(s);fetch(s.href,o)}})();c.defaults.baseURL="https://sound-wave.b.goit.study/api";const h=8;let C=1;window.addEventListener("DOMContentLoaded",U);function u(t){return document.querySelector(t)}async function U(){const t=u(".artists-list"),e=u(".artists-load-more-btn"),n=u(".loader");if(!t||!e){console.error("[artists] .artists-list або .artists-load-more-btn не знайдено у DOM");return}await Y(1),e.addEventListener("click",a);async function a(){s(!0),e.style.display="none",C+=1;const o=await B(C,h);t.insertAdjacentHTML("beforeend",I(o)),S(e,o.length),s(!1),e.style.display!=="none"&&(e.style.display="flex")}function s(o){n?.classList.toggle("visually-hidden",!o)}}async function Y(t){const e=u(".artists-list"),n=u(".artists-load-more-btn"),a=u(".loader");a?.classList.remove("visually-hidden");const s=await B(t,h);e.innerHTML=I(s),S(n,s.length),a?.classList.add("visually-hidden")}async function B(t=1,e=h){try{const{data:n}=await c.get("/artists",{params:{page:t,limit:e},headers:{Accept:"application/json"}});return Array.isArray(n)?n:Array.isArray(n?.artists)?n.artists:Array.isArray(n?.results)?n.results:n?.items??[]}catch(n){return console.error("[artists] fetchArtists error:",n),[]}}function S(t,e){t.style.display=e<h?"none":"flex"}function I(t=[]){return t.map(({_id:e,genres:n,strArtist:a,strArtistThumb:s,strBiographyEN:o})=>{const i=s||"./img/placeholders/artist@1x.jpg",l=a||"Unknown",d=z(n).map(y=>`<li class="artists-genres-item">${w(F(y))}</li>`).join("");return`
+import{a as c,S as R,i as U,s as Y}from"./assets/vendor-BvlvBSap.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))n(a);new MutationObserver(a=>{for(const o of a)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&n(i)}).observe(document,{childList:!0,subtree:!0});function s(a){const o={};return a.integrity&&(o.integrity=a.integrity),a.referrerPolicy&&(o.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?o.credentials="include":a.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function n(a){if(a.ep)return;a.ep=!0;const o=s(a);fetch(a.href,o)}})();const _="https://sound-wave.b.goit.study/api";c.defaults.baseURL=_;async function z(t=10,e=1){try{return(await c.get("/feedbacks",{params:{limit:t,page:e}})).data}catch(s){throw console.error("Error fetching feedback list:",s.message,s.response?.status),s}}let g;const G=document.querySelector(".swiper-wrapper"),E=document.querySelector(".feedback-pagination");async function K(){try{(await z(10,1)).data.forEach(({rating:s,descr:n,name:a})=>{const o=X({rating:s,text:n,user:a});G.appendChild(o)}),Q()}catch(t){console.error("Oops...Error",t.message)}}function X({rating:t,text:e,user:s}){const n=document.createElement("div");n.classList.add("swiper-slide");const a=Math.round(t);return n.innerHTML=`
+    <div class="feedback-card">
+      <div class="feedback-stars">${J(a)}</div>
+      <p class="feedback-text">"${e}"</p>
+      <p class="feedback-user">${s}</p>
+    </div>
+  `,n}function J(t){let s="";for(let n=1;n<=5;n++){const a=n<=t?"star-filled":"star-outline";s+=`
+     <svg class="star-icon ${a}" width="24" height="24">
+        <use href="img/symbol-defs.svg#${n<=t?"icon-star-filled":"icon-star-outline"}"></use>
+      </svg>
+    `}return s}function Q(){g=new R(".feedback-swiper",{loop:!1,navigation:{nextEl:".feedback-button-next",prevEl:".feedback-button-prev"},grabCursor:!0,on:{slideChange:V}}),I(),Z()}function I(){E.innerHTML="";const t=g.slides.length,e=g.activeIndex;if(t===0)return;const s=0,n=Math.floor(t/2),a=t-1;[s,n,a].forEach(i=>{const l=document.createElement("span");l.classList.add("swiper-pagination-bullet"),l.setAttribute("data-slide-index",i),e===i&&l.classList.add("swiper-pagination-bullet-active"),E.appendChild(l)})}function V(){I()}function Z(){E.addEventListener("click",t=>{const e=t.target.closest(".swiper-pagination-bullet");if(!e)return;const s=parseInt(e.getAttribute("data-slide-index"),10);g.slideTo(s)})}K();c.defaults.baseURL="https://sound-wave.b.goit.study/api";const h=8;let T=1;window.addEventListener("DOMContentLoaded",tt);function u(t){return document.querySelector(t)}async function tt(){const t=u(".artists-list"),e=u(".artists-load-more-btn"),s=u(".loader");if(!t||!e){console.error("[artists] .artists-list або .artists-load-more-btn не знайдено у DOM");return}await et(1),e.addEventListener("click",n);async function n(){a(!0),e.style.display="none",T+=1;const o=await H(T,h);t.insertAdjacentHTML("beforeend",q(o)),P(e,o.length),a(!1),e.style.display!=="none"&&(e.style.display="flex")}function a(o){s?.classList.toggle("visually-hidden",!o)}}async function et(t){const e=u(".artists-list"),s=u(".artists-load-more-btn"),n=u(".loader");n?.classList.remove("visually-hidden");const a=await H(t,h);e.innerHTML=q(a),P(s,a.length),n?.classList.add("visually-hidden")}async function H(t=1,e=h){try{const{data:s}=await c.get("/artists",{params:{page:t,limit:e},headers:{Accept:"application/json"}});return Array.isArray(s)?s:Array.isArray(s?.artists)?s.artists:Array.isArray(s?.results)?s.results:s?.items??[]}catch(s){return console.error("[artists] fetchArtists error:",s),[]}}function P(t,e){t.style.display=e<h?"none":"flex"}function q(t=[]){return t.map(({_id:e,genres:s,strArtist:n,strArtistThumb:a,strBiographyEN:o})=>{const i=a||"./img/placeholders/artist@1x.jpg",l=n||"Unknown",d=st(s).map(y=>`<li class="artists-genres-item">${k(nt(y))}</li>`).join("");return`
 <li class="artists-card-item">
-  <img class="artists-image" src="${i}" alt="${w(l)}" loading="lazy" />
+  <img class="artists-image" src="${i}" alt="${k(l)}" loading="lazy" />
   <ul class="artists-genres-list">${d}</ul>
-  <p class="artists-name">${w(l)}</p>
-  <p class="artists-information">${R(o||"",144)}</p>
+  <p class="artists-name">${k(l)}</p>
+  <p class="artists-information">${at(o||"",144)}</p>
   <button class="artists-learn-more-card-btn open-artist-modal" data-artist-id="${e}">
     Learn More
     <svg class="caret-right-icon" width="8" height="16" aria-hidden="true" focusable="false">
       <use href="./icons-artists.svg#icon-caret-right"></use>
     </svg>
   </button>
-</li>`}).join("")}function z(t){return Array.isArray(t)?t:typeof t=="string"?t.split(/[,/]/).map(e=>e.trim()).filter(Boolean):[]}function F(t=""){return String(t).replace(/[,/]/g," ")}function R(t="",e=144){const n=window.innerWidth,a=n<768?60:n<1440?160:e,s=String(t);return s.length>a?s.slice(0,a)+"…":s}function w(t=""){return String(t).replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}const r={modal:document.getElementById("artistModal"),modalClose:document.getElementById("modalClose"),modalContentWrapper:document.querySelector(".modal__content"),modalContent:document.getElementById("modal-content"),loader:document.getElementById("globalLoader"),artists:document.querySelector(".artists-section")};let m=0;c.defaults.baseURL="https://sound-wave.b.goit.study/api";c.defaults.timeout=1e4;function H(){m++,r.loader&&m===1&&r.loader.classList.add("active")}function g(){m=Math.max(0,m-1),r.loader&&m===0&&r.loader.classList.remove("active")}function q(t,e="Error"){N.error({title:e,message:t,position:"topRight",timeout:7e3,backgroundColor:"orange"})}c.interceptors.request.use(t=>(H(),t),t=>(g(),q("Request error"),Promise.reject(t)));c.interceptors.response.use(t=>(g(),t),t=>{g();const e=t.response?`Error ${t.response.status}: ${t.response.statusText}`:"Network error, please check your connection";return q(e),Promise.reject(t)});async function _(t){return(await c.get(`/artists/${t}`)).data}async function G(t){return(await c.get(`/artists/${t}/albums`)).data}function K(t){if(!t)return"0:00";let e=Math.floor(t/1e3),n=Math.floor(e/3600),a=Math.floor(e%3600/60),s=e%60;return n>0?n+":"+(a<10?"0"+a:a)+":"+(s<10?"0"+s:s):a+":"+(s<10?"0"+s:s)}function X(t,e){return t&&e?`${t}–${e}`:t?`${t}–present`:"Information missing"}function T(t="No Image",e=150,n=150){const a=W({width:e,height:n,text:t,fontSize:14,fontFamily:'"IBM Plex Sans", sans-serif',textColor:"#aaa"});return`data:image/svg+xml;base64,${btoa(a)}`}function J(t,e){const{strArtist:n,strArtistThumb:a,intFormedYear:s,intDiedYear:o,strGender:i,intMembers:l,strCountry:d,strBiographyEN:y,genres:E}=t,f=y||"",x=f.indexOf(".",250),$=x!==-1?f.slice(0,x+1):f.slice(0,250);let b=!1;const{albumsList:v}=e,O=X(s,o),P=([...E],`
-  <ul id="genres-list">${E.map(L=>`<li class="genre">
-          <p class="genre-text">${L}</p>
+</li>`}).join("")}function st(t){return Array.isArray(t)?t:typeof t=="string"?t.split(/[,/]/).map(e=>e.trim()).filter(Boolean):[]}function nt(t=""){return String(t).replace(/[,/]/g," ")}function at(t="",e=144){const s=window.innerWidth,n=s<768?60:s<1440?160:e,a=String(t);return a.length>n?a.slice(0,n)+"…":a}function k(t=""){return String(t).replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e])}const r={modal:document.getElementById("artistModal"),modalClose:document.getElementById("modalClose"),modalContentWrapper:document.querySelector(".modal__content"),modalContent:document.getElementById("modal-content"),loader:document.getElementById("globalLoader"),artists:document.querySelector(".artists-section")};let p=0;c.defaults.baseURL="https://sound-wave.b.goit.study/api";c.defaults.timeout=1e4;function O(){p++,r.loader&&p===1&&r.loader.classList.add("active")}function b(){p=Math.max(0,p-1),r.loader&&p===0&&r.loader.classList.remove("active")}function D(t,e="Error"){U.error({title:e,message:t,position:"topRight",timeout:7e3,backgroundColor:"orange"})}c.interceptors.request.use(t=>(O(),t),t=>(b(),D("Request error"),Promise.reject(t)));c.interceptors.response.use(t=>(b(),t),t=>{b();const e=t.response?`Error ${t.response.status}: ${t.response.statusText}`:"Network error, please check your connection";return D(e),Promise.reject(t)});async function ot(t){return(await c.get(`/artists/${t}`)).data}async function rt(t){return(await c.get(`/artists/${t}/albums`)).data}function it(t){if(!t)return"0:00";let e=Math.floor(t/1e3),s=Math.floor(e/3600),n=Math.floor(e%3600/60),a=e%60;return s>0?s+":"+(n<10?"0"+n:n)+":"+(a<10?"0"+a:a):n+":"+(a<10?"0"+a:a)}function lt(t,e){return t&&e?`${t}–${e}`:t?`${t}–present`:"Information missing"}function B(t="No Image",e=150,s=150){const n=Y({width:e,height:s,text:t,fontSize:14,fontFamily:'"IBM Plex Sans", sans-serif',textColor:"#aaa"});return`data:image/svg+xml;base64,${btoa(n)}`}function ct(t,e){const{strArtist:s,strArtistThumb:n,intFormedYear:a,intDiedYear:o,strGender:i,intMembers:l,strCountry:d,strBiographyEN:y,genres:x}=t,f=y||"",$=f.indexOf(".",250),M=$!==-1?f.slice(0,$+1):f.slice(0,250);let v=!1;const{albumsList:L}=e,j=lt(a,o),N=([...x],`
+  <ul id="genres-list">${x.map(w=>`<li class="genre">
+          <p class="genre-text">${w}</p>
         </li>`).join("")}</ul>
-  `),j=a||T("No Image");let M="";v&&v.length&&(M=`
+  `),W=n||B("No Image");let A="";L&&L.length&&(A=`
       <h3 id="albums-title">Albums</h3>
       <ul id="albums-list">
-        ${v.map(L=>Q(L)).join("")}
+        ${L.map(w=>dt(w)).join("")}
       </ul>
-    `);const D=`
-  <h1 id="artist-name">${n}</h1>
+    `);const F=`
+  <h1 id="artist-name">${s}</h1>
   <div id="modal-top-wrapper">
     <div id="modal-artist-photo">
-      <img id="artist-photo" src="${j}" alt="${n}" onerror="onerror=null;src='${T()}'"/>
+      <img id="artist-photo" src="${W}" alt="${s}" onerror="onerror=null;src='${B()}'"/>
     </div>
     <div id="artist-intro-wrapper">
       <div class="intro-box">
         <h4 class="artist-details-heading">Years active</h4>
-        <p class="artist-details-info">${O}</p>
+        <p class="artist-details-info">${j}</p>
       </div>
       <div class="intro-box">
         <h4 class="artist-details-heading">Sex</h4>
@@ -43,26 +53,26 @@ import{a as c,i as N,s as W}from"./assets/vendor-BLr1Yvwf.js";(function(){const 
       </div>
       <div id="bio-data">
         <h4 class="artist-details-heading">Biography</h4>
-        <p class="artist-details-info">${$}</p>
+        <p class="artist-details-info">${M}</p>
         <button type="button" id="bio-load-more">
           <i class="bx bx-caret-down bx-tada-hover" style="color:#fff; background-color:transparent"></i>
         </button>
       </div>
-      ${P}
+      ${N}
     </div>
   </div>
-  ${M}
-`;r.modalContent.insertAdjacentHTML("afterbegin",D);const A=document.querySelector("#bio-data > .artist-details-info"),k=document.querySelector("#bio-load-more > .bx");document.querySelector("#bio-load-more").addEventListener("click",()=>{b=!b,b?(A.textContent=f,k.classList.replace("bx-caret-down","bx-caret-up")):(A.textContent=$,k.classList.replace("bx-caret-up","bx-caret-down"))})}function Q(t){const{tracks:e,strAlbum:n}=t;let a="";return e&&e.length&&(a=`
+  ${A}
+`;r.modalContent.insertAdjacentHTML("afterbegin",F);const C=document.querySelector("#bio-data > .artist-details-info"),S=document.querySelector("#bio-load-more > .bx");document.querySelector("#bio-load-more").addEventListener("click",()=>{v=!v,v?(C.textContent=f,S.classList.replace("bx-caret-down","bx-caret-up")):(C.textContent=M,S.classList.replace("bx-caret-up","bx-caret-down"))})}function dt(t){const{tracks:e,strAlbum:s}=t;let n="";return e&&e.length&&(n=`
           <div id="track-list-headers">
             <span>Track</span>
             <span>Time</span>
             <span>Link</span>
           </div>
           <ul>
-          ${e.map(({strTrack:s,intDuration:o,movie:i})=>`
+          ${e.map(({strTrack:a,intDuration:o,movie:i})=>`
             <li class="song">
-              <span class="track-name">${s}</span>
-              <span class="track-duration">${K(o)||"N/A"}</span>
+              <span class="track-name">${a}</span>
+              <span class="track-duration">${it(o)||"N/A"}</span>
               <span class="track-link">
                 ${i?`<a href="${i}" target="_blank" rel="noopener noreferrer">
                       <i class="bx bxl-youtube bx-tada" style="color: #fff"></i>
@@ -73,8 +83,8 @@ import{a as c,i as N,s as W}from"./assets/vendor-BLr1Yvwf.js";(function(){const 
           </ul>
       `),`
     <li class="album">
-      <h4 class="album-details-heading">${n}</h4>
-      ${a}
+      <h4 class="album-details-heading">${s}</h4>
+      ${n}
     </li>
-  `}async function V(t="65ada69eaf9f6d155db48612"){r.modal.classList.add("active"),document.body.classList.add("modal-open"),r.modalContent.innerHTML='<div class="modal-loading">Loading artist details...</div>',H();try{const[e,n]=await Promise.all([_(t),G(t)]);r.modalContent.innerHTML="",J(e,n)}catch(e){r.modalContent.innerHTML=`<div class="modal-error">Failed to load artist details due to ${e}.</div>`}finally{g(),r.modalContentWrapper.scrollHeight>r.modalContentWrapper.offsetHeight&&(r.modalContentWrapper.style.overflowY="scroll",r.modalContentWrapper.style.overflowX="hidden")}}function Z(t){let e="";if(t.target.nodeName==="BUTTON"&&t.target.classList.contains("artists-learn-more-card-btn"))e=t.target.getAttribute("data-artist-id")||"",V(e),r.modalClose.addEventListener("click",p),r.modal.addEventListener("click",n=>{n.target===r.modal&&p()});else return}function tt(){r.modalClose.removeEventListener("click",p),r.modal.removeEventListener("click",t=>{t.target===r.modal&&p()})}function p(){r.modal.classList.remove("active"),document.body.classList.remove("modal-open"),tt(),setTimeout(()=>{r.modalContent.innerHTML=""},300)}document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".logo, .logo-mobile").forEach(l=>{l.addEventListener("click",d=>{d.preventDefault(),window.location.reload()})});const e=document.getElementById("open-menu"),n=document.getElementById("close-menu"),a=document.getElementById("mobile-menu"),s=a?.querySelectorAll(".nav-list-mobile a")||[];if(!e||!n||!a)return;const o=()=>{a.classList.add("open"),a.classList.remove("hidden"),document.body.style.overflow="hidden",e.setAttribute("aria-expanded","true")},i=()=>{a.classList.remove("open"),setTimeout(()=>a.classList.add("hidden"),300),document.body.style.overflow="",e.setAttribute("aria-expanded","false"),e.focus()};e.addEventListener("click",o),n.addEventListener("click",i),s.forEach(l=>l.addEventListener("click",i)),document.addEventListener("click",l=>{a.classList.contains("open")&&!a.contains(l.target)&&l.target!==e&&i()}),document.addEventListener("keydown",l=>{l.key==="Escape"&&a.classList.contains("open")&&i()}),r.artists&&r.artists.addEventListener("click",Z),window.addEventListener("hashchange",()=>{a.classList.contains("open")&&i()}),window.addEventListener("resize",()=>{window.innerWidth>=768&&a.classList.contains("open")&&i()})});document.addEventListener("keydown",t=>{t.key==="Escape"&&r.modal.classList.contains("active")&&p()});
+  `}async function ut(t="65ada69eaf9f6d155db48612"){r.modal.classList.add("active"),document.body.classList.add("modal-open"),r.modalContent.innerHTML='<div class="modal-loading">Loading artist details...</div>',O();try{const[e,s]=await Promise.all([ot(t),rt(t)]);r.modalContent.innerHTML="",ct(e,s)}catch(e){r.modalContent.innerHTML=`<div class="modal-error">Failed to load artist details due to ${e}.</div>`}finally{b(),r.modalContentWrapper.scrollHeight>r.modalContentWrapper.offsetHeight&&(r.modalContentWrapper.style.overflowY="scroll",r.modalContentWrapper.style.overflowX="hidden")}}function pt(t){let e="";if(t.target.nodeName==="BUTTON"&&t.target.classList.contains("artists-learn-more-card-btn"))e=t.target.getAttribute("data-artist-id")||"",ut(e),r.modalClose.addEventListener("click",m),r.modal.addEventListener("click",s=>{s.target===r.modal&&m()});else return}function mt(){r.modalClose.removeEventListener("click",m),r.modal.removeEventListener("click",t=>{t.target===r.modal&&m()})}function m(){r.modal.classList.remove("active"),document.body.classList.remove("modal-open"),mt(),setTimeout(()=>{r.modalContent.innerHTML=""},300)}document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".logo, .logo-mobile").forEach(l=>{l.addEventListener("click",d=>{d.preventDefault(),window.location.reload()})});const e=document.getElementById("open-menu"),s=document.getElementById("close-menu"),n=document.getElementById("mobile-menu"),a=n?.querySelectorAll(".nav-list-mobile a")||[];if(!e||!s||!n)return;const o=()=>{n.classList.add("open"),n.classList.remove("hidden"),document.body.style.overflow="hidden",e.setAttribute("aria-expanded","true")},i=()=>{n.classList.remove("open"),setTimeout(()=>n.classList.add("hidden"),300),document.body.style.overflow="",e.setAttribute("aria-expanded","false"),e.focus()};e.addEventListener("click",o),s.addEventListener("click",i),a.forEach(l=>l.addEventListener("click",i)),document.addEventListener("click",l=>{n.classList.contains("open")&&!n.contains(l.target)&&l.target!==e&&i()}),document.addEventListener("keydown",l=>{l.key==="Escape"&&n.classList.contains("open")&&i()}),r.artists&&r.artists.addEventListener("click",pt),window.addEventListener("hashchange",()=>{n.classList.contains("open")&&i()}),window.addEventListener("resize",()=>{window.innerWidth>=768&&n.classList.contains("open")&&i()})});document.addEventListener("keydown",t=>{t.key==="Escape"&&r.modal.classList.contains("active")&&m()});
 //# sourceMappingURL=index.js.map

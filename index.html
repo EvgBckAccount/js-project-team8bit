@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/js-project-team8bit/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ArtistsHub</title>
+    <link rel="icon" type="image/x-icon" href="/js-project-team8bit/assets/Subtract-WgkK8MAq.svg">
+    <title>ArtistsHub</title>
     <script type="module" crossorigin src="/js-project-team8bit/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/js-project-team8bit/assets/vendor-BLr1Yvwf.js">
-    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/vendor-DQ67Uydh.css">
-    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/index-DRx2btuQ.css">
+    <link rel="modulepreload" crossorigin href="/js-project-team8bit/assets/vendor-BvlvBSap.js">
+    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/vendor-C4MrFlSZ.css">
+    <link rel="stylesheet" crossorigin href="/js-project-team8bit/assets/index-JuW9XNmw.css">
   </head>
   <body>
     <header class="header">
@@ -56,10 +57,7 @@
   </div>
 </header>
 
-
-
-
-
+    
     <main>
       <!-- Loads the specified .html file -->
       <section class="hero-section">
@@ -146,7 +144,25 @@
         </div>
     </div>
 
-      
+      <section id="reviews-section" class="feedback-section">
+    <h2 class="is-hidden">feedback-section</h2>
+    <div class="container feedback-container">
+        <div class="swiper feedback-swiper">
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-button-prev feedback-button-prev">
+                <svg class="icon-left">
+                    <use href="../img/icons/symbol-defs.svg#icon-arrow-left2"></use>
+                </svg>
+            </div>
+            <div class="swiper-button-next feedback-button-next">
+                <svg class="icon-next">
+                    <use href="../img/icons/symbol-defs.svg#icon-arrow-right2"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="swiper-pagination feedback-pagination"></div>
+    </div>
+</section>
       <div
   id="artistModal"
   class="modal"
@@ -171,13 +187,71 @@
 
     </main>
 
-    <footer class="footer">
-  <div class="container">
+    <footer class="footer-section">
+    <div class="container footer-container">
+        <div class="footer-logo-wrapper">
+            <a href="./index.html" class="footer-logo">
+                <svg class="footer-logo-svg" width="106" height="30">
+                    <use href="/js-project-team8bit/assets/logo-IQ9Ii_PW.svg"></use>
+                </svg>
+            </a>
+        </div>
 
-  </div>
+        <nav class="footer-nav">
+            <ul class="footer-nav-list">
+                <li class="footer-nav-item">
+                    <a href="#artists" class="footer-nav-link">Artists</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="#about_us" class="footer-nav-link">About us</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="#reviews" class="footer-nav-link">Reviews</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="divider"></div>
+
+        <div class="footer-social-wrapper">
+            <div class="footer-social">
+                <ul class="footer-social-list">
+                    <li class="footer-social-item">
+                        <a class="footer-social-link" href="https://www.instagram.com/" rel="noopener noreferrer"
+                            target="_blank">
+                            <svg class="social-icon" width="40" height="40">
+                                <use href="../img/icons/symbol-defs.svg#icon-instagram"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a class="footer-social-link" href="https://www.facebook.com/" rel="noopener noreferrer"
+                            target="_blank">
+                            <svg class="social-icon" width="40" height="40">
+                                <use href="../img/icons/symbol-defs.svg#icon-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a class="footer-social-link" href="https://www.youtube.com/" rel="noopener noreferrer"
+                            target="_blank">
+                            <svg class="social-icon" width="40" height="40">
+                                <use href="../img/icons/symbol-defs.svg#icon-youtube"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-text-wrapper">
+                <p class="footer-text">&#169; 2025 ArtistsHub. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 
-
+
   </body>
 </html>
+
