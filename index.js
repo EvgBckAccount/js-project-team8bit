@@ -4,7 +4,7 @@ import{a as c,S as R,i as U,s as z}from"./assets/vendor-BeE4JKq3.js";(function()
       <p class="feedback-text">"${e}"</p>
       <p class="feedback-user">${s}</p>
     </div>
-  `,n}function J(t){let s="";for(let n=1;n<=5;n++){const a=n<=t?"#764191":"rgba(0, 0, 0, 0.25)";s+=`<box-icon name="star" color="${a}" size="24px"></box-icon>`}return s}function Q(){g=new R(".feedback-swiper",{loop:!1,navigation:{nextEl:".feedback-button-next",prevEl:".feedback-button-prev"},grabCursor:!0,on:{slideChange:V}}),I(),Z()}function I(){k.innerHTML="";const t=g.slides.length,e=g.activeIndex;if(t===0)return;const s=0,n=Math.floor(t/2),a=t-1;[s,n,a].forEach(i=>{const l=document.createElement("span");l.classList.add("swiper-pagination-bullet"),l.setAttribute("data-slide-index",i),e===i&&l.classList.add("swiper-pagination-bullet-active"),k.appendChild(l)})}function V(){I()}function Z(){k.addEventListener("click",t=>{const e=t.target.closest(".swiper-pagination-bullet");if(!e)return;const s=parseInt(e.getAttribute("data-slide-index"),10);g.slideTo(s)})}K();c.defaults.baseURL="https://sound-wave.b.goit.study/api";const h=8;let T=1;window.addEventListener("DOMContentLoaded",tt);function u(t){return document.querySelector(t)}async function tt(){const t=u(".artists-list"),e=u(".artists-load-more-btn"),s=u(".loader");if(!t||!e){console.error("[artists] .artists-list або .artists-load-more-btn не знайдено у DOM");return}await et(1),e.addEventListener("click",n);async function n(){a(!0),e.style.display="none",T+=1;const o=await H(T,h);t.insertAdjacentHTML("beforeend",q(o)),P(e,o.length),a(!1),e.style.display!=="none"&&(e.style.display="flex")}function a(o){s?.classList.toggle("visually-hidden",!o)}}async function et(t){const e=u(".artists-list"),s=u(".artists-load-more-btn"),n=u(".loader");n?.classList.remove("visually-hidden");const a=await H(t,h);e.innerHTML=q(a),P(s,a.length),n?.classList.add("visually-hidden")}async function H(t=1,e=h){try{const{data:s}=await c.get("/artists",{params:{page:t,limit:e},headers:{Accept:"application/json"}});return Array.isArray(s)?s:Array.isArray(s?.artists)?s.artists:Array.isArray(s?.results)?s.results:s?.items??[]}catch(s){return console.error("[artists] fetchArtists error:",s),[]}}function P(t,e){t.style.display=e<h?"none":"flex"}function q(t=[]){return t.map(({_id:e,genres:s,strArtist:n,strArtistThumb:a,strBiographyEN:o})=>{const i=a||"./img/placeholders/artist@1x.jpg",l=n||"Unknown",d=st(s).map(y=>`<li class="artists-genres-item">${x(nt(y))}</li>`).join("");return`
+  `,n}function J(t){let s="";for(let n=1;n<=5;n++){const a=n<=t;s+=`<box-icon name="star" color="#764191" class="${a?"star-filled":"star-empty"}" size="24px"></box-icon>`}return s}function Q(){g=new R(".feedback-swiper",{loop:!1,navigation:{nextEl:".feedback-button-next",prevEl:".feedback-button-prev"},grabCursor:!0,on:{slideChange:V}}),I(),Z()}function I(){k.innerHTML="";const t=g.slides.length,e=g.activeIndex;if(t===0)return;const s=0,n=Math.floor(t/2),a=t-1;[s,n,a].forEach(i=>{const l=document.createElement("span");l.classList.add("swiper-pagination-bullet"),l.setAttribute("data-slide-index",i),e===i&&l.classList.add("swiper-pagination-bullet-active"),k.appendChild(l)})}function V(){I()}function Z(){k.addEventListener("click",t=>{const e=t.target.closest(".swiper-pagination-bullet");if(!e)return;const s=parseInt(e.getAttribute("data-slide-index"),10);g.slideTo(s)})}K();c.defaults.baseURL="https://sound-wave.b.goit.study/api";const h=8;let T=1;window.addEventListener("DOMContentLoaded",tt);function u(t){return document.querySelector(t)}async function tt(){const t=u(".artists-list"),e=u(".artists-load-more-btn"),s=u(".loader");if(!t||!e){console.error("[artists] .artists-list або .artists-load-more-btn не знайдено у DOM");return}await et(1),e.addEventListener("click",n);async function n(){a(!0),e.style.display="none",T+=1;const o=await H(T,h);t.insertAdjacentHTML("beforeend",q(o)),P(e,o.length),a(!1),e.style.display!=="none"&&(e.style.display="flex")}function a(o){s?.classList.toggle("visually-hidden",!o)}}async function et(t){const e=u(".artists-list"),s=u(".artists-load-more-btn"),n=u(".loader");n?.classList.remove("visually-hidden");const a=await H(t,h);e.innerHTML=q(a),P(s,a.length),n?.classList.add("visually-hidden")}async function H(t=1,e=h){try{const{data:s}=await c.get("/artists",{params:{page:t,limit:e},headers:{Accept:"application/json"}});return Array.isArray(s)?s:Array.isArray(s?.artists)?s.artists:Array.isArray(s?.results)?s.results:s?.items??[]}catch(s){return console.error("[artists] fetchArtists error:",s),[]}}function P(t,e){t.style.display=e<h?"none":"flex"}function q(t=[]){return t.map(({_id:e,genres:s,strArtist:n,strArtistThumb:a,strBiographyEN:o})=>{const i=a||"./img/placeholders/artist@1x.jpg",l=n||"Unknown",d=st(s).map(y=>`<li class="artists-genres-item">${x(nt(y))}</li>`).join("");return`
 <li class="artists-card-item">
   <img class="artists-image" src="${i}" alt="${x(l)}" loading="lazy" />
   <ul class="artists-genres-list">${d}</ul>
@@ -18,16 +18,16 @@ import{a as c,S as R,i as U,s as z}from"./assets/vendor-BeE4JKq3.js";(function()
   <ul id="genres-list">${E.map(w=>`<li class="genre">
           <p class="genre-text">${w}</p>
         </li>`).join("")}</ul>
-  `),W=n||B("No Image");let A="";L&&L.length&&(A=`
+  `),F=n||B("No Image");let A="";L&&L.length&&(A=`
       <h3 id="albums-title">Albums</h3>
       <ul id="albums-list">
         ${L.map(w=>dt(w)).join("")}
       </ul>
-    `);const F=`
+    `);const W=`
   <h1 id="artist-name">${s}</h1>
   <div id="modal-top-wrapper">
     <div id="modal-artist-photo">
-      <img id="artist-photo" src="${W}" alt="${s}" onerror="onerror=null;src='${B()}'"/>
+      <img id="artist-photo" src="${F}" alt="${s}" onerror="onerror=null;src='${B()}'"/>
     </div>
     <div id="artist-intro-wrapper">
       <div class="intro-box">
@@ -56,7 +56,7 @@ import{a as c,S as R,i as U,s as z}from"./assets/vendor-BeE4JKq3.js";(function()
     </div>
   </div>
   ${A}
-`;r.modalContent.insertAdjacentHTML("afterbegin",F);const C=document.querySelector("#bio-data > .artist-details-info"),S=document.querySelector("#bio-load-more > .bx");document.querySelector("#bio-load-more").addEventListener("click",()=>{v=!v,v?(C.textContent=f,S.classList.replace("bx-caret-down","bx-caret-up")):(C.textContent=$,S.classList.replace("bx-caret-up","bx-caret-down"))})}function dt(t){const{tracks:e,strAlbum:s}=t;let n="";return e&&e.length&&(n=`
+`;r.modalContent.insertAdjacentHTML("afterbegin",W);const C=document.querySelector("#bio-data > .artist-details-info"),S=document.querySelector("#bio-load-more > .bx");document.querySelector("#bio-load-more").addEventListener("click",()=>{v=!v,v?(C.textContent=f,S.classList.replace("bx-caret-down","bx-caret-up")):(C.textContent=$,S.classList.replace("bx-caret-up","bx-caret-down"))})}function dt(t){const{tracks:e,strAlbum:s}=t;let n="";return e&&e.length&&(n=`
           <div id="track-list-headers">
             <span>Track</span>
             <span>Time</span>
