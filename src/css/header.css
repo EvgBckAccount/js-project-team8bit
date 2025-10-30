@@ -12,7 +12,7 @@
 }
 
 .header-container{
-  height:56px;
+  height:72px;
   padding: 0 16px;
   display: flex;
   align-items: center;
@@ -132,7 +132,7 @@
 
 
   .header-container{
-    height: 64px;
+    height: 72px;
     padding: 0 24px;
     flex-direction: row-reverse;                
   }
